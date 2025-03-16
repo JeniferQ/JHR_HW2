@@ -1,0 +1,29 @@
+// Variables
+
+//  Stores SASS variables like colors, font sizes, spacing, and other values that are likely to be reused.
+
+@use "fonts";
+
+// Colors
+$cyan: #6be4df;
+$red: #f75f66;
+$pink: #f69dc8;
+$purple: #767ee1;
+$blue: #0074bc;
+$dark-blue: #003556;
+
+// Fonts
+$primary-font: "Arial", "Helvetica", sans-serif;
+
+$heading: 48px;
+$title: 38px;
+$object-title: 28px;
+$subheading: 20px;
+$subtitle: 16px;
+$body-text: 14px;
+
+// Other Variables
+$round-border: 25px;
+$section-gap: 100px;
+$basic-transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
