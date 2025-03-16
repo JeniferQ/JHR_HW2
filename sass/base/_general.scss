@@ -1,0 +1,68 @@
+@use "../abstracts/variables" as a;
+
+body {
+  background-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  transition: a.$basic-transition;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+p {
+  font-family: a.$primary-font;
+  line-height: 170%;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: a.$primary-font;
+  line-height: 120%;
+}
+
+// ---Tablet Styles---
+@media screen and (min-width: 768px) {
+}
+
+// ---Desktop Styles---
+@media screen and (min-width: 1200px) {
+}
