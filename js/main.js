@@ -1,4 +1,5 @@
 import { initHeader } from "./header.js";
+import { initCarousel } from "./carousel.js";
 import { Console, upgradedConsole } from "./console.js";
 
 console.log("Javascripf file is connected");
@@ -70,3 +71,4 @@ PS5.extraInfo();
 console.log(PS5);
 
 initHeader();
+initCarousel();
