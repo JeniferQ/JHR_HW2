@@ -1,0 +1,147 @@
+// Component for CONSOLES
+
+@use "../abstracts/variables" as a;
+
+.console-con {
+  margin-top: -15px;
+  border: 1px solid rgba(255, 255, 255, 0.199);
+  border-radius: a.$round-border;
+  width: 100%;
+  padding: 35px 50px 75px 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  text-align: center;
+
+  p {
+    font-size: a.$body-text;
+    font-family: a.$primary-font;
+    font-weight: 200;
+
+    span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}
+
+.console-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.console-release_date {
+  font-size: a.$subtitle;
+  font-family: a.$primary-font;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.console-name {
+  font-size: a.$title;
+  font-family: a.$primary-font;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.console-nickname {
+  font-size: a.$subtitle;
+  font-family: a.$primary-font;
+  color: white;
+  font-weight: 100;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.console-evolutions,
+.console-acessories,
+.notable-games {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h5 {
+    font-size: a.$subtitle;
+    font-family: a.$primary-font;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+}
+
+.games-con {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 250px;
+}
+
+.game-image {
+  object-fit: cover;
+  object-position: center;
+  width: 250px;
+  height: 350px;
+  border-radius: a.$round-border;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.game-name {
+  max-width: 225px;
+}
+
+// ---Tablet Styles---
+@media (min-width: 768px) {
+  .games-con {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .game {
+    width: 130px;
+  }
+
+  .game-image {
+    width: 130px;
+    height: 220px;
+  }
+
+  .game-name {
+    max-width: 125px;
+  }
+}
+
+// ---Desktop Styles---
+@media screen and (min-width: 1200px) {
+  .games-con {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .game {
+    width: 220px;
+  }
+
+  .game-image {
+    width: 220px;
+    height: 320px;
+  }
+
+  .game-name {
+    max-width: 200px;
+  }
+}

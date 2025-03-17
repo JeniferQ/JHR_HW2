@@ -1,0 +1,150 @@
+// Component for TIMELINE
+
+@use "../abstracts/variables" as a;
+
+.timeline-text {
+  margin-top: -75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+  z-index: 50;
+
+  h4 {
+    font-size: a.$title;
+    font-family: a.$primary-font;
+    font-weight: 800;
+    color: white;
+  }
+
+  h5 {
+    font-size: a.$subtitle;
+    font-family: a.$primary-font;
+    color: white;
+    font-weight: 100;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+}
+
+.carousel {
+  margin-top: 75px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.carousel-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+
+  img {
+    aspect-ratio: 2/1;
+    height: 50px;
+    opacity: 0.25;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .current-img {
+    aspect-ratio: 2/1;
+    height: 100px;
+    opacity: 1;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+}
+
+.carousel-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+
+  button {
+    background-color: transparent;
+    cursor: pointer;
+    transition: a.$basic-transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.carousel-nav {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: center;
+  background-color: black;
+  padding: 5px 15px;
+  z-index: 25;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  background-color: a.$red;
+  opacity: 0.5;
+  border-radius: 100%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: transparent;
+  border: 5px solid a.$red;
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+}
+
+// ---Tablet Styles---
+@media (min-width: 768px) {
+  .carousel-track {
+    gap: 75px;
+    img {
+      height: 75px;
+    }
+
+    .current-img {
+      height: 150px;
+    }
+  }
+}
+
+// ---Desktop Styles---
+@media screen and (min-width: 1200px) {
+  .carousel-track {
+    gap: 125px;
+    img {
+      height: 125px;
+    }
+
+    .current-img {
+      height: 200px;
+    }
+  }
+
+  .carousel-buttons {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
