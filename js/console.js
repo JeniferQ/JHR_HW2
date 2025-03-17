@@ -1,47 +1,62 @@
+const consoleCon = document.querySelector('.console-con');
+
 class Console {
     constructor (
         name, 
         release_date,
-        history,
+        alias,
+        description,
         features,
         accessories,
         games = []
     ){
         this.name = name;
         this.release_date = release_date;
-        this.history = history;
+        this.alias = alias,
+        this.description = description;
         this.features = features;
         this.accessories = accessories;
         this.games = games;
     }
 
+    consoleInfo(){
+        consoleCon.innerHTML = `
+          <div class="console-heading">
+            <h4 class="console-release_date">${this.release_date}</h4>
+            <h3 class="console-name">${this.name}</h3>
+            <h4 class="console-nickname">${this.alias}</h4>
+          </div>
+          <p class="console-text">${this.description}</p>
+          <div class="console-evolutions">
+            <h5>Evolutions</h5>
+            <p>${this.features}</p>
+          </div>
+          <div class="console-acessories">
+            <h5>Accessories</h5>
+            <p>${this.accessories}</p>
+          </div>
+          <div class="notable-games">
+            <h5>Notable Games</h5>
+            <div class="games-con"></div>
+          </div>`;
+    }
+    
     gameInfo(){
         this.games.forEach(game => {
-            let gameTitle = document.createElement('p');
-            let gameImg = document.createElement('img');
+            const gameDiv = document.createElement('div');
+            const gamesCon = document.querySelector('.games-con');
             let img = game.replace(/(?!\w|\s)./g, '').replace(/\s+/g, '').toLowerCase();
-    
-            gameTitle.textContent = `${game}`;
-            gameImg.src = `images/${img}.png`;
-    
-            document.body.append(gameTitle, gameImg);
+
+            gameDiv.innerHTML = `
+                <img class="game-image"
+                    src="images/${img}.webp"
+                    alt="${game} poster"
+                    />
+                <p class="game-name"><span>${game}</span></p>
+                `;
+
+            gamesCon.appendChild(gameDiv);
         })
-    }
-
-    info(){
-        let date = document.createElement('p');
-        let title = document.createElement('h3');
-        let history = document.createElement('p');
-        let features = document.createElement('p');
-        let accessories = document.createElement('p');
-
-        date.textContent =  `${this.release_date}`;
-        title.textContent = `${this.name}`;
-        history.textContent = `${this.history}`;
-        features.textContent = `${this.features}`;
-        accessories.textContent = `${this.accessories}`;
-
-        document.body.append(date, title, history, features, accessories);
     }
 }
 
@@ -49,20 +64,23 @@ class upgradedConsole extends Console {
     constructor(
         name, 
         release_date,
-        history,
+        alias,
+        description,
         features,
         accessories,
         games = [],
         extra
     ){
-        super(name, release_date, history, features, accessories, games);
+        super(name, release_date, alias, description, features, accessories, games);
         this.extra = extra;
     }
     extraInfo(){
         let extraInfo = document.createElement("p");
+        extraInfo.classList.add('console-extra');
+        
         extraInfo.textContent = `One of the unique features of the ${this.name} is ${this.extra}.`;
         
-        document.body.appendChild(extraInfo);
+        consoleCon.appendChild(extraInfo);
     }
 }
 
