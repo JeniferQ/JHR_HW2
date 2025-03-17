@@ -1,0 +1,37 @@
+// Component for FOOTER
+
+@use "../abstracts/variables" as a;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+  color: white;
+  text-align: center;
+  width: 75%;
+  padding-top: a.$section-gap;
+  padding-bottom: a.$section-gap;
+
+  img {
+    width: 150px;
+  }
+
+  p {
+    font-size: a.$body-text;
+    font-family: a.$primary-font;
+    font-weight: 200;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+// ---Tablet Styles---
+@media (min-width: 768px) {
+}
+
+// ---Desktop Styles---
+@media screen and (min-width: 1200px) {
+}
