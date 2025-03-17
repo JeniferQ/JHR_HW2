@@ -2,7 +2,7 @@ import { initHeader } from "./header.js";
 import { initCarousel } from "./carousel.js";
 import { Console, upgradedConsole } from "./console.js";
 
-console.log("Javascripf file is connected");
+console.log("Javascript file is connected");
 
 const PS1 = new Console(
   "PlayStation",
@@ -10,7 +10,7 @@ const PS1 = new Console(
   "history_text",
   "feature_text",
   "accessory_text",
-  ["Final Fantasy VII", "Metal Gear Solid", "Crash Bandicoot"]
+  ["Final Fantasy VII", "Resident Evil 2", "Crash Bandicoot"]
 );
 PS1.info();
 PS1.gameInfo();
@@ -22,7 +22,7 @@ const PS2 = new Console(
   "history_text",
   "feature_text",
   "accessory_text",
-  ["Grand Theft Auto", "Shadow of the Colossums", "God of War II"]
+  ["Grand Theft Auto: San Andreas", "Shadow of the Colossus", "God of War II"]
 );
 PS2.info();
 PS2.gameInfo();
@@ -34,11 +34,7 @@ const PS3 = new Console(
   "history_text",
   "feature_text",
   "accessory_text",
-  [
-    "The Last of Us",
-    "Uncharted 2: Among Thieves",
-    "Metal Gear Solid 4: Guns of the Patriots",
-  ]
+  ["The Last of Us", "Uncharted 2: Among Thieves", "Red Dead Redemption"]
 );
 PS3.info();
 PS3.gameInfo();
@@ -50,7 +46,7 @@ const PS4 = new Console(
   "history_text",
   "feature_text",
   "accessory_text",
-  ["God of War", "Marvel's Spider-Man", "The Last of Us Part II"]
+  ["Red Dead Redemption 2", "Marvel's Spider-Man", "The Last of Us Part II"]
 );
 PS4.info();
 PS4.gameInfo();
@@ -62,7 +58,7 @@ const PS5 = new upgradedConsole(
   "history_text",
   "feature_text",
   "accessory_text",
-  ["Demon's Souls", "Ratchet & Clank: Rift Apart", "Marvel’s Spider-Man 2"],
+  ["God Of War Ragnarok", "Elden Ring", "Hogwarts Legacy"],
   "real-time ray tracing"
 );
 PS5.info();
