@@ -1,15 +1,15 @@
-export function initCarousel() {
-  // variables
+import { slider } from "./slider.js";
+
+export function initCarousel(consoles) {
   const track = document.querySelector(".carousel-track");
   const prevBtn = document.querySelector("#prevBtn");
   const nextBtn = document.querySelector("#nextBtn");
-  const dots = document.querySelectorAll(".dot");
-  const consoles = ["ps1.png", "ps2.png", "ps3.png", "ps4.png", "ps5.png"];
+  const consoleImages = ["ps1.png", "ps2.png", "ps3.png", "ps4.png", "ps5.png"];
   let currentIndex = 0;
   let isAnimating = false;
 
   function updateCarousel() {
-    if (isAnimating) return; // bug fix to prevent unwanted animation
+    if (isAnimating) return;
     isAnimating = true;
 
     const tl = gsap.timeline({
@@ -17,40 +17,35 @@ export function initCarousel() {
         isAnimating = false;
         track.innerHTML = "";
 
-        // previous
+        // previous img
         const prevIndex =
-          (currentIndex - 1 + consoles.length) % consoles.length;
+          (currentIndex - 1 + consoleImages.length) % consoleImages.length;
         const prevImg = document.createElement("img");
-        prevImg.src = `images/${consoles[prevIndex]}`;
+        prevImg.src = `images/${consoleImages[prevIndex]}`;
         prevImg.classList.add("prev-img", "carousel-img");
-        prevImg.style.opacity = currentIndex === 0 ? 0 : 1;
         prevImg.addEventListener("click", () => moveToIndex(prevIndex));
 
-        // current
+        // current img
         const currentImg = document.createElement("img");
-        currentImg.src = `images/${consoles[currentIndex]}`;
+        currentImg.src = `images/${consoleImages[currentIndex]}`;
         currentImg.classList.add("current-img", "carousel-img");
 
-        // next
-        const nextIndex = (currentIndex + 1) % consoles.length;
+        // next img
+        const nextIndex = (currentIndex + 1) % consoleImages.length;
         const nextImg = document.createElement("img");
-        nextImg.src = `images/${consoles[nextIndex]}`;
+        nextImg.src = `images/${consoleImages[nextIndex]}`;
         nextImg.classList.add("next-img", "carousel-img");
-        nextImg.style.opacity = currentIndex === consoles.length - 1 ? 0 : 1;
         nextImg.addEventListener("click", () => moveToIndex(nextIndex));
 
-        // append images to slider
+        // append images
         track.appendChild(prevImg);
         track.appendChild(currentImg);
         track.appendChild(nextImg);
 
         // gsap position reset
         gsap.set([prevImg, currentImg, nextImg], { clearProps: "all" });
-
-        // active dot
-        dots.forEach((dot, index) => {
-          dot.classList.toggle("active", index === currentIndex);
-        });
+        // Update the console info after the animation is complete
+        slider(consoles, currentIndex);
       },
     });
 
@@ -64,12 +59,14 @@ export function initCarousel() {
       if (
         currentIndex >
           (prevImg.src.includes(
-            consoles[(currentIndex - 1 + consoles.length) % consoles.length]
+            consoleImages[
+              (currentIndex - 1 + consoleImages.length) % consoleImages.length
+            ]
           )
-            ? (currentIndex - 1 + consoles.length) % consoles.length
+            ? (currentIndex - 1 + consoleImages.length) % consoleImages.length
             : currentIndex) ||
         (currentIndex === 0 &&
-          prevImg.src.includes(consoles[consoles.length - 1]))
+          prevImg.src.includes(consoleImages[consoleImages.length - 1]))
       ) {
         tl.to(currentImg, {
           x: "-500",
@@ -102,54 +99,49 @@ export function initCarousel() {
           .set(track, { clearProps: "all" });
       }
     } else {
-      const prevIndex = (currentIndex - 1 + consoles.length) % consoles.length;
+      const prevIndex =
+        (currentIndex - 1 + consoleImages.length) % consoleImages.length;
       const prevImg = document.createElement("img");
-      prevImg.src = `images/${consoles[prevIndex]}`;
+      prevImg.src = `images/${consoleImages[prevIndex]}`;
       prevImg.classList.add("prev-img", "carousel-img");
-      prevImg.style.opacity = currentIndex === 0 ? 0 : 1;
       prevImg.addEventListener("click", () => moveToIndex(prevIndex));
 
       const currentImg = document.createElement("img");
-      currentImg.src = `images/${consoles[currentIndex]}`;
+      currentImg.src = `images/${consoleImages[currentIndex]}`;
       currentImg.classList.add("current-img", "carousel-img");
 
-      const nextIndex = (currentIndex + 1) % consoles.length;
+      const nextIndex = (currentIndex + 1) % consoleImages.length;
       const nextImg = document.createElement("img");
-      nextImg.src = `images/${consoles[nextIndex]}`;
+      nextImg.src = `images/${consoleImages[nextIndex]}`;
       nextImg.classList.add("next-img", "carousel-img");
-      nextImg.style.opacity = currentIndex === consoles.length - 1 ? 0 : 1;
       nextImg.addEventListener("click", () => moveToIndex(nextIndex));
 
       track.appendChild(prevImg);
       track.appendChild(currentImg);
       track.appendChild(nextImg);
 
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentIndex);
-      });
       isAnimating = false;
+      // Update the console info after the animation is complete
+      slider(consoles, currentIndex);
     }
   }
 
-  // Function to move to a specific index
   function moveToIndex(index) {
-    if (isAnimating) return; //prevent animation if one is in progress
+    if (isAnimating) return;
     currentIndex = index;
     updateCarousel();
   }
 
-  // Event listeners for arrows
+  // event listeners for arrows
   prevBtn.addEventListener("click", () =>
-    moveToIndex((currentIndex - 1 + consoles.length) % consoles.length)
+    moveToIndex(
+      (currentIndex - 1 + consoleImages.length) % consoleImages.length
+    )
   );
   nextBtn.addEventListener("click", () =>
-    moveToIndex((currentIndex + 1) % consoles.length)
+    moveToIndex((currentIndex + 1) % consoleImages.length)
   );
 
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => moveToIndex(index));
-  });
-
-  // Initialize the carousel
+  // initialize the carousel
   updateCarousel();
 }
