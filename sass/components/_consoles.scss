@@ -86,9 +86,10 @@
 
 .game {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
   align-items: center;
+  text-align: center;
   width: 250px;
 }
 
@@ -102,7 +103,9 @@
 }
 
 .game-name {
-  max-width: 225px;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 // ---Tablet Styles---
@@ -118,10 +121,6 @@
   .game-image {
     width: 130px;
     height: 220px;
-  }
-
-  .game-name {
-    max-width: 125px;
   }
 }
 
@@ -139,9 +138,5 @@
   .game-image {
     width: 220px;
     height: 320px;
-  }
-
-  .game-name {
-    max-width: 200px;
   }
 }
