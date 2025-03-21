@@ -1,0 +1,22 @@
+{
+  "name": "jhr_hw2",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeniferQ/JHR_HW2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeniferQ/JHR_HW2/issues"
+  },
+  "homepage": "https://github.com/JeniferQ/JHR_HW2#readme",
+  "devDependencies": {
+    "parcel": "^2.14.1"
+  }
+}
