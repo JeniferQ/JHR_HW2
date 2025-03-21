@@ -130,6 +130,25 @@ export function initCarousel(consoles) {
     if (isAnimating) return;
     currentIndex = index;
     updateCarousel();
+
+    gsap.from(".console-con", 1, {
+      scrollTrigger: {
+        trigger: ".console-con",
+        start: "top bottom",
+        end: "bottom 50%",
+        toggleActions: "play none none reverse",
+        markers: false,
+      },
+      duration: 1,
+      opacity: 0,
+      ease: "ease2.inOut",
+      y: 50,
+    });
+
+    const consoleCon = document.querySelector(".carousel-track");
+    if (consoleCon) {
+      consoleCon.scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   // event listeners for arrows
