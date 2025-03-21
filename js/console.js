@@ -1,26 +1,28 @@
-const consoleCon = document.querySelector('.console-con');
+const consoleCon = document.querySelector(".console-con");
 
 class Console {
-    constructor (
-        name, 
-        release_date,
-        alias,
-        description,
-        features,
-        accessories,
-        games = []
-    ){
-        this.name = name;
-        this.release_date = release_date;
-        this.alias = alias,
-        this.description = description;
-        this.features = features;
-        this.accessories = accessories;
-        this.games = games;
-    }
+  constructor(
+    name,
+    release_date,
+    alias,
+    description,
+    features,
+    accessories,
+    games = [],
+    index
+  ) {
+    this.name = name;
+    this.release_date = release_date;
+    this.alias = alias;
+    this.description = description;
+    this.features = features;
+    this.accessories = accessories;
+    this.games = games;
+    this.index = index;
+  }
 
-    consoleInfo(){
-        consoleCon.innerHTML = `
+  consoleInfo() {
+    consoleCon.innerHTML = `
           <div class="console-heading">
             <h4 class="console-release_date">${this.release_date}</h4>
             <h3 class="console-name">${this.name}</h3>
@@ -39,15 +41,18 @@ class Console {
             <h5>Notable Games</h5>
             <div class="games-con"></div>
           </div>`;
-    }
-    
-    gameInfo(){
-        this.games.forEach(game => {
-            const gameDiv = document.createElement('div');
-            const gamesCon = document.querySelector('.games-con');
-            let img = game.replace(/(?!\w|\s)./g, '').replace(/\s+/g, '').toLowerCase();
+  }
 
-            gameDiv.innerHTML = `
+  gameInfo() {
+    this.games.forEach((game) => {
+      const gameDiv = document.createElement("div");
+      const gamesCon = document.querySelector(".games-con");
+      let img = game
+        .replace(/(?!\w|\s)./g, "")
+        .replace(/\s+/g, "")
+        .toLowerCase();
+
+      gameDiv.innerHTML = `
                 <img class="game-image"
                     src="images/${img}.webp"
                     alt="${game} poster"
@@ -55,34 +60,44 @@ class Console {
                 <p class="game-name"><span>${game}</span></p>
                 `;
 
-            gamesCon.appendChild(gameDiv);
-        })
-    }
+      gamesCon.appendChild(gameDiv);
+    });
+  }
 }
 
 class upgradedConsole extends Console {
-    constructor(
-        name, 
-        release_date,
-        alias,
-        description,
-        features,
-        accessories,
-        games = [],
-        extra
-    ){
-        super(name, release_date, alias, description, features, accessories, games);
-        this.extra = extra;
-    }
-    extraInfo(){
-        let extraInfo = document.createElement("p");
-        extraInfo.classList.add('console-extra');
-        
-        extraInfo.textContent = `One of the unique features of the ${this.name} is ${this.extra}.`;
-        
-        consoleCon.appendChild(extraInfo);
-    }
+  constructor(
+    name,
+    release_date,
+    alias,
+    description,
+    features,
+    accessories,
+    games = [],
+    extra,
+    index
+  ) {
+    super(
+      name,
+      release_date,
+      alias,
+      description,
+      features,
+      accessories,
+      games,
+      index
+    );
+    this.extra = extra;
+  }
+
+  extraInfo() {
+    let extraInfo = document.createElement("p");
+    extraInfo.classList.add('console-extra');
+    
+    extraInfo.textContent = `One of the unique features of the ${this.name} is ${this.extra}.`;
+    
+    consoleCon.appendChild(extraInfo);
+  }
 }
 
 export { Console, upgradedConsole };
-  
