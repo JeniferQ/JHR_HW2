@@ -3,14 +3,17 @@
 @use "../abstracts/variables" as a;
 
 .console-con {
-  margin-top: -15px;
-  border: 1px solid rgba(255, 255, 255, 0.199);
-  border-radius: a.$round-border;
+  margin-top: -20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.199);
+  border-left: 1px solid rgba(255, 255, 255, 0.199);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.199);
+  border-radius: 0px 0px a.$round-border a.$round-border;
   width: 100%;
   padding: 35px 50px 75px 50px;
   color: white;
   display: flex;
   flex-direction: column;
+  z-index: 20;
   gap: 50px;
   align-items: center;
   text-align: center;
@@ -28,6 +31,7 @@
 }
 
 .console-heading {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -86,9 +90,10 @@
 
 .game {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
   align-items: center;
+  text-align: center;
   width: 250px;
 }
 
@@ -102,7 +107,9 @@
 }
 
 .game-name {
-  max-width: 225px;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 // ---Tablet Styles---
@@ -118,10 +125,6 @@
   .game-image {
     width: 130px;
     height: 220px;
-  }
-
-  .game-name {
-    max-width: 125px;
   }
 }
 
@@ -139,9 +142,5 @@
   .game-image {
     width: 220px;
     height: 320px;
-  }
-
-  .game-name {
-    max-width: 200px;
   }
 }
