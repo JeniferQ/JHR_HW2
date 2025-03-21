@@ -3,7 +3,7 @@ import { Console, upgradedConsole } from "./console.js";
 import { initSlider } from "./slider.js";
 import { initAnimations } from "./animations.js";
 
-console.log("Javascript file is connected");
+console.log("Javascript file was connected succesfully");
 
 const PS1 = new Console(
   "PlayStation 1",
