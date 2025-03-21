@@ -89,6 +89,15 @@ class upgradedConsole extends Console {
     );
     this.extra = extra;
   }
+
+  extraInfo() {
+    let extraInfo = document.createElement("p");
+    extraInfo.classList.add('console-extra');
+    
+    extraInfo.textContent = `One of the unique features of the ${this.name} is ${this.extra}.`;
+    
+    consoleCon.appendChild(extraInfo);
+  }
 }
 
 export { Console, upgradedConsole };

@@ -1,7 +1,6 @@
 import { initHeader } from "./header.js";
-import { initCarousel } from "./carousel.js";
 import { Console, upgradedConsole } from "./console.js";
-import { slider } from "./slider.js";
+import { initSlider } from "./slider.js";
 import { initAnimations } from "./animations.js";
 
 console.log("Javascript file is connected");
@@ -69,6 +68,5 @@ consoles.forEach((console) => {
 });
 
 initHeader();
-initCarousel(consoles);
-slider(consoles);
+initSlider(consoles);
 initAnimations();
