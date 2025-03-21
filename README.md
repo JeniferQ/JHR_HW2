@@ -8,7 +8,14 @@ To demonstrate our knowledge of OOP, modules, and bundling based on what was cov
 
 
 ## Installation
-No installation required
+Ensure you have Node.js installed on your machine.
+If you haven't already, run the following to install dependencies:
+
+## npm install
+To run the project using Parcel, use the following command:
+
+## npm start
+This will start a development server and open the project in your browser.
 
 ## Technology Used
 1. Figma
