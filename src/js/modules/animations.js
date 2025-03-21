@@ -144,6 +144,20 @@ gsap.from(".carousel-buttons", 3, {
   ease: "ease2.inOut",
 });
 
+gsap.from(".carousel-track", {
+  scrollTrigger: {
+    trigger: ".carousel-track",
+    start: "top bottom",
+    end: "bottom 50%",
+    toggleActions: "play none none reverse",
+    markers: false,
+  },
+  duration: 1,
+  opacity: 0,
+  y: 30,
+  ease: "ease2.inOut",
+});
+
 gsap.from(".console-con", 1, {
   scrollTrigger: {
     trigger: ".console-con",

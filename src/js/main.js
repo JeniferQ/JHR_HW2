@@ -1,7 +1,7 @@
-import { initHeader } from "./header.js";
-import { Console, upgradedConsole } from "./console.js";
-import { initSlider } from "./slider.js";
-import { initAnimations } from "./animations.js";
+import { initHeader } from "./modules/header.js";
+import { Console, upgradedConsole } from "./modules/console.js";
+import { initSlider } from "./modules/slider.js";
+import { initAnimations } from "./modules/animations.js";
 
 console.log("Javascript file is connected");
 
